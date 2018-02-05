@@ -1,0 +1,5 @@
+python scrapApple.py apple.html >apple
+python scrapAmazon.py amazon.html >amazon
+
+
+# chmod +x getData.txt

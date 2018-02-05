@@ -1,11 +1,7 @@
 #!/usr/bin/python
 
-# questions: obonhamcarter@allegheny.edu
-# date: 1 Feb 2018
-
-#ref: https://www.google.com/search?biw=1134&bih=658&ei=tXlzWvPwBo24zwLLgYS4Cw&q=apple+stock&oq=apple&gs_l=psy-ab.1.0.0i131i67k1j0i67k1l3j0l5j0i131k1.20822.21239.0.23377.5.4.0.1.1.0.163.489.1j3.4.0....0...1c.1.64.psy-ab..1.4.338....0.DcZ6ZiTn6ms
-
 import urllib2
+import datetime
 
 def getStockValue(source):
 # a home-made stock market value parser.
@@ -18,10 +14,26 @@ def getStockValue(source):
     value = value.replace('"',"")
     value = value.replace("'","")
 
-    print "stock Value :",value
+    value = value.replace(">","")
+    value = value.replace("<","")
+
     return value
 # end of getStockValue()
 
+def getStockID(source):
+
+    start = source.find("g-unit norm")
+    start = source.find("searchmore", start + 1)
+    start = source.find('>', start + 1)
+    value2 = source[start:source.find('<',start + 1)]
+
+    value2 = value2.replace('"',"")
+    value2 = value2.replace("'","")
+
+    value2 = value2.replace(">","")
+    value2 = value2.replace("<","")
+
+    return value2
 
 def giveHelp():
     print "\t\tA program to parse Google Stocks pages for the stock market price."
@@ -44,14 +56,14 @@ def openFile(file):
 def begin(inFile):
 #infile is the name of the html file that is saved from google's stock page
 #starter file
-    print "Loaded file,", inFile," Stockmarketprice:"
     source = open(inFile,"r").read() # load the whole file.
     source = openFile(inFile) # load the whole file.
     stockValue = getStockValue(source)
+    stockid = getStockID(source)
+    now = datetime.datetime.now()
 
-    print "  Loaded file,", inFile,"\n  Stock market price:",stockValue
-# end of begin()
-
+    print " Stock ID:",stockid ,"\n Stock market price:",stockValue
+    print " Date ",now.strftime("%b,%m,%Y")
 
 
 ######### program command line init ########
