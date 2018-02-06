@@ -60,10 +60,10 @@ def begin(inFile):
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
+    time = now.strftime("%b %m, %Y %I:%M %p")
 
     print " Stock ID:",stockid ,"\n Stock market price:",stockValue
-    print " Date ",now.strftime("%b,%m,%Y")
-    # end of begin()
+    print " Date and Time:",time
 
 
 
