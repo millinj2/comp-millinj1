@@ -2,6 +2,7 @@
 
 import urllib2
 import datetime
+import sqlite3
 
 
 def getStockValue(source):
@@ -53,6 +54,16 @@ def openFile(file):
                 sys.exit(1)
 #end of openFile()
 
+def saveData(stockid, stockValue, dt, filename):
+#create the file
+    f = open(filename,"w")
+#write the data
+    f.write(stockid+"\n")
+    f.write(stockValue+"\n")
+    f.write(dt+"\n")
+    # f.write(time+"\n")
+#close the file
+    f.close()
 
 def begin(inFile):
 #infile is the name of the html file that is saved from google's stock page
@@ -61,15 +72,48 @@ def begin(inFile):
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
-    time = now.strftime("%b %m, %Y %I:%M %p")
+    dt = now.strftime("%Y-%m-%d--%H:%M")
+    #time = now.strftime("%I:%M %p")
+    stock = "Amazon"
+    filename = "amazonfiles/AmazonData-" + dt +".txt"
+    DBfileName = "../compDB.db"
 
-    print " Stock ID:",stockid ,"\n Stock market price:",stockValue
-    print " Date and Time:",time
+    # print " Stock ID:",stockid ,"\n Stock market price:",stockValue
+    # print " Date",dt
+    # print " Time",time
+
+    saveData(stockid, stockValue, dt, filename)
+    baggagehand(stock, stockid, stockValue, dt, DBfileName)
+
 # end of begin()
 
-
-
 ######### program command line init ########
+
+def baggagehand(stock, stockid, stockValue, dt, DBfileName):
+# method to get a file, open content, and populate database
+
+    print " Baggagehand() We are saving to this file: ",DBfileName
+    print " Data: "
+    print " StockID:" ,stockid
+    print " Value: ", stockValue
+    print " Date: ", dt
+
+
+    sqlite_file = DBfileName # the database file.
+
+    conn = sqlite3.connect(sqlite_file) # load the database file, defined above
+    c = conn.cursor()
+
+    c.execute("INSERT INTO stocks VALUES (?, ?, ?, ?)", (dt, stock, stockid, stockValue))
+    result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
+    print result
+
+    result2 = c.execute("SELECT * FROM stocks").fetchall()
+    print result2
+    # row = c.fetchall()
+
+
+# end of baggagehand()
 
 import sys
 
@@ -85,7 +129,7 @@ if __name__ == '__main__':
     file_.close()
 
     if len(sys.argv) == 2:
-         begin(sys.argv[1])#,sys.argv[3], sys.argv[4]),sys.argv[5])
+         begin(sys.argv[1]) #,sys.argv[3], sys.argv[4]),sys.argv[5])
     else:
          giveHelp()
          sys.exit(0)

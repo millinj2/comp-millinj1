@@ -1,5 +1,13 @@
-python scrapApple.py apple.html >apple
+# python scrapApple.py apple.html >apple
 python scrapAmazon.py amazon.html >amazon
 
+# python crapAmazon.py amazon.html
+# python scrapApple.py apple.html
+# python scrapGoogle.py google.html
+# python scrapIBM.py ibm.html
+# python scrapIntel.py intel.html
+# python scrapMicrosoft.py microsoft.html
+
+python database.py
 
 # chmod +x getData.txt

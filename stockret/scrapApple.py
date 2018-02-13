@@ -2,6 +2,7 @@
 
 import urllib2
 import datetime
+import sqlite3
 
 def getStockValue(source):
 # a home-made stock market value parser.
@@ -52,22 +53,68 @@ def openFile(file):
                 sys.exit(1)
 #end of openFile()
 
+def saveData(stockid, stockValue, dt, filename):
+#create the file
+    f = open(filename,"w")
+#write the data
+    f.write(stockid+"\n")
+    f.write(stockValue+"\n")
+    f.write(dt+"\n")
+    # f.write(time+"\n")
+#close the file
+    f.close()
 
 def begin(inFile):
 #infile is the name of the html file that is saved from google's stock page
-#starter file
     source = open(inFile,"r").read() # load the whole file.
     source = openFile(inFile) # load the whole file.
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
-    time = now.strftime("%b %m, %Y %I:%M %p")
+    dt = now.strftime("%Y-%m-%d--%H:%M")
+    #time = now.strftime("%I:%M %p")
+    stock = "Apple"
+    filename = "applefiles/AppleData-" + dt +".txt"
+    DBfileName = "../compDB.db"
 
-    print " Stock ID:",stockid ,"\n Stock market price:",stockValue
-    print " Date and Time:",time
+    # print " Stock ID:",stockid ,"\n Stock market price:",stockValue
+    # print " Date",dt
+    # print " Time",time
 
+    saveData(stockid, stockValue, dt, filename)
+    baggagehand(stockid, stockValue, dt, DBfileName)
 
 ######### program command line init ########
+
+def baggagehand(stockid, stockValue, dt, DBfileName):
+# method to get a file, open content, and populate database
+
+    print " Baggagehand() We are saving to this file: ",DBfileName
+    # print " Data: "
+    # print " StockID:" ,stockid
+    # print " Value: ", stockValue
+    # print " Date: ", dt
+    # print " Time: ", time
+
+    sqlite_file = DBfileName # the database file.
+
+    conn = sqlite3.connect(sqlite_file) # load the database file, defined above
+    c = conn.cursor()
+
+    c.execute("INSERT INTO stocks VALUES ('dt', 'stock', 'stockid', 'stockValue')")
+    row = c.fetchall()
+
+   #  for line_list in row:
+	# print "\nline_list = ",line_list,type(line_list)
+   #  line_list =  (u'10114', u'Maximillian', u'S5', u'Biology', 86000) <type 'tuple'>
+	# count = 0
+	# for i in line_list:
+	# 	count = count + 1
+	# 	print "  Tuple Position in line_list :", count,"::",i
+   # conn.close()
+
+
+# end of baggagehand()
 
 import sys
 
@@ -77,7 +124,7 @@ if __name__ == '__main__':
 
     response = urllib2.urlopen('https://finance.google.com/finance?q=NASDAQ%3AAAPL&ei=TJF0WqioCsODmAG5rLnYBg')
     data = response.read()
-    filename = "apple.html"
+    filename = "applefiles/apple.html"
     file_ = open(filename, 'w')
     file_.write(data)
     file_.close()
