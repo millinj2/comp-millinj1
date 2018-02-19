@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
     response = urllib2.urlopen('https://finance.google.com/finance?q=NASDAQ%3AMSFT&ei=vZB0WqGhKcvGmAHVwLuIDA')
     data = response.read()
-    filename = "microsoftfiles/microsoft.html"
+    filename = "microsoft.html"
     file_ = open(filename, 'w')
     file_.write(data)
     file_.close()

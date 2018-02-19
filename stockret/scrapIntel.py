@@ -127,7 +127,7 @@ if __name__ == '__main__':
 
     response = urllib2.urlopen('https://finance.google.com/finance?q=intel&ei=4rV0WoCXIoW3e5_fuqgP')
     data = response.read()
-    filename = "intelfiles/intel.html"
+    filename = "intel.html"
     file_ = open(filename, 'w')
     file_.write(data)
     file_.close()

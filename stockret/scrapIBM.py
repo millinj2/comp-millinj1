@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
     response = urllib2.urlopen('https://finance.google.com/finance?q=NYSE%3AIBM&ei=EbR0WrCiGcrae_OCppgP')
     data = response.read()
-    filename = "ibmfiles/ibm.html"
+    filename = "ibm.html"
     file_ = open(filename, 'w')
     file_.write(data)
     file_.close()
