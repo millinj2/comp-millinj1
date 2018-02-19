@@ -38,7 +38,7 @@ def getStockID(source):
     return value2
 
 def giveHelp():
-    print "\t\tA program to parse Google Stocks pages for the stock market price."
+    print "\t\tA program to parse Stocks pages for the stock market price."
     print "\t\tUsage: programName file.html"
     print "\tNote: the file.html is only the main website file of the stocks page, not the css files."
     print " "
@@ -105,17 +105,21 @@ def baggagehand(stock, stockid, stockValue, dt, DBfileName):
     c = conn.cursor()
 
     c.execute("INSERT INTO stocks VALUES (?, ?, ?, ?)", (dt, stock, stockid, stockValue))
+    conn.commit()
+    #print the tables from database
     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
     print result
-
+    #print everything in Stocks
     result2 = c.execute("SELECT * FROM stocks").fetchall()
     print result2
-    # row = c.fetchall()
+    row = c.fetchall()
 
+    conn.close()
 
 # end of baggagehand()
 
 import sys
+
 
 if __name__ == '__main__':
 #       if len(sys.argv) == 2: #one option added to command line
@@ -129,7 +133,7 @@ if __name__ == '__main__':
     file_.close()
 
     if len(sys.argv) == 2:
-         begin(sys.argv[1]) #,sys.argv[3], sys.argv[4]),sys.argv[5])
+         begin(sys.argv[1])
     else:
          giveHelp()
          sys.exit(0)

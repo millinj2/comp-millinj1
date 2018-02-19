@@ -19,6 +19,7 @@ c.execute('''CREATE TABLE stocks(
           FOREIGN KEY(stock_ID) REFERENCES model(stock_ID))''')
 
 c.execute('''CREATE TABLE news(
+          dt VARCHAR NOT NULL,
           company VARCHAR(20) NOT NULL,
           art_hdl VARCHAR(100) NOT NULL,
           article VARCHAR NOT NULL,
