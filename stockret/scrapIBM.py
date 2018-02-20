@@ -71,7 +71,7 @@ def begin(inFile):
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
-    dt = now.strftime("%Y-%m-%d--%H:%M")
+    dt = now.strftime("%Y-%m-%d--%H:%M-IBM")
     #time = now.strftime("%I:%M %p")
     stock = "IBM"
     filename = "ibmfiles/IBMData-" + dt +".txt"

@@ -72,7 +72,7 @@ def begin(inFile):
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
-    dt = now.strftime("%Y-%m-%d--%H:%M")
+    dt = now.strftime("%Y-%m-%d--%H:%M-Microsoft")
     #time = now.strftime("%I:%M %p")
     stock = "Microsoft"
     filename = "microsoftfiles/MicrosoftData-" + dt +".txt"

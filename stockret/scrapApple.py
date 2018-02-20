@@ -73,7 +73,7 @@ def begin(inFile):
     stockValue = getStockValue(source)
     stockid = getStockID(source)
     now = datetime.datetime.now()
-    dt = now.strftime("%Y-%m-%d--%H:%M")
+    dt = now.strftime("%Y-%m-%d--%H:%M-Apple")
     #time = now.strftime("%I:%M %p")
     stock = "Apple"
     filename = "applefiles/AppleData-" + dt +".txt"
