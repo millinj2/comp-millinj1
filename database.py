@@ -34,12 +34,3 @@ c.execute('''CREATE TABLE model(
           PRIMARY KEY(stock_ID),
           FOREIGN KEY(stock_ID) REFERENCES stocks(stock_ID),
           FOREIGN KEY(art_hdl) REFERENCES news(art_hdl))''')
-
-# for p in stockinfo:
-#     format_str = """INSERT INTO stocks (dt, stock, stock_ID, stk_chg)
-#     VALUES ("{time}", "{stock}", "{stockid", "{stockValue}");"""
-#
-#     sql_command = format_str.format(time=p[0], stock=p[1], stockid=p[2], stockValue = p[3])
-#     cursor.execute(sql_command)
-
-# c.execute("INSERT INTO stocks VALUES ("{dt}", "{stock}", "{stockid}", "{stockValue}")")
