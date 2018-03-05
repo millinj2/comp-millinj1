@@ -58,9 +58,12 @@ def saveData(stockid, stockValue, dt, filename):
 #create the file
     f = open(filename,"w")
 #write the data
-    f.write(stockid+"\n")
-    f.write(stockValue+"\n")
-    f.write(dt+"\n")
+    stockid = stockid.replace(",","")
+    stockValue = stockValue.replace(",","")
+    dt = dt.replace(",","")
+    f.write(stockid+ ",")
+    f.write(stockValue+",")
+    f.write(dt)
     # f.write(time+"\n")
 #close the file
     f.close()
@@ -110,8 +113,8 @@ def baggagehand(stock, stockid, stockValue, dt, DBfileName):
     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
     print result
     #print everything in Stocks
-    result2 = c.execute("SELECT * FROM stocks").fetchall()
-    print result2
+    # result2 = c.execute("SELECT * FROM stocks").fetchall()
+    # print result2
     row = c.fetchall()
 
     conn.close()
