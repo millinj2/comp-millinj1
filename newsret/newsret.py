@@ -61,7 +61,7 @@ def begin(inFile):
     source = openFile(inFile)
 
     article = getArticleSummary(source)
-    filename = "articlesummary.txt"
+    filename = "articlesummary.csv"
     #create the file
     f = open(filename,"w")
     #write the data
