@@ -2,6 +2,9 @@ from newspaper import Article
 import datetime
 import urllib.request
 import sqlite3
+import csv
+import sys
+from textblob import TextBlob
 
 def getArticleSummary(source):
     article.parse()
@@ -17,13 +20,6 @@ def getArticleDate(source):
     article.nlp()
     value2 = article.publish_date
     return value2
-
-# def getArticleHeadline(source):
-#     article.parse()
-#     article.html
-#     article.nlp()
-#     value3 = article.headline
-#     return value3
 
 def getKeyWords(source):
     article.parse()
@@ -73,31 +69,31 @@ def begin(inFile):
 
     baggagehand(dt, company, art_hdl, article, DBfileName)
 
-def baggagehand(dt, company, art_hdl, article, DBfileName):
-# method to get a file, open content, and populate database
-
-    print (" Baggagehand() We are saving to this file: ", DBfileName)
-    # print " Data: "
-    # print " StockID:" ,stockid
-    # print " Value: ", stockValue
-    # print " Date: ", dt
-
-    sqlite_file = DBfileName # the database file.
-
-    conn = sqlite3.connect(sqlite_file) # load the database file, defined above
-    c = conn.cursor()
-
-    c.execute("INSERT INTO news VALUES (?, ?, ?, ?)", (dt, company, art_hdl, article))
-    conn.commit()
-    #print the tables from database
-    result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
-    print(result)
-    #print everything in Stocks
-    result2 = c.execute("SELECT * FROM news").fetchall()
-    print (result2)
-    row = c.fetchall()
-
-    conn.close()
+# def baggagehand(dt, company, art_hdl, article, DBfileName):
+# # method to get a file, open content, and populate database
+#
+#     print (" Baggagehand() We are saving to this file: ", DBfileName)
+#     # print " Data: "
+#     # print " StockID:" ,stockid
+#     # print " Value: ", stockValue
+#     # print " Date: ", dt
+#
+#     sqlite_file = DBfileName # the database file.
+#
+#     conn = sqlite3.connect(sqlite_file) # load the database file, defined above
+#     c = conn.cursor()
+#
+#     c.execute("INSERT INTO news VALUES (?, ?, ?, ?)", (dt, company, art_hdl, article))
+#     conn.commit()
+#     #print the tables from database
+#     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
+#     print(result)
+#     #print everything in Stocks
+#     result2 = c.execute("SELECT * FROM news").fetchall()
+#     print (result2)
+#     row = c.fetchall()
+#
+#     conn.close()
 
 # def baggagehandModel(stock_ID, art_hdl, sentiscore, keywords, DBfileName):
 # # method to get a file, open content, and populate database
@@ -125,6 +121,20 @@ def baggagehand(dt, company, art_hdl, article, DBfileName):
 #
 #     conn.close()
 
+def sentAnalysis:
+    # to force utf-8 encoding on entire program
+    reload(sys)
+    sys.setdefaultencoding('utf8')
+
+    with open('/Users/jennamillin/repos/cs600/comp-millinj2/articlesummary.csv', 'r') as fp:
+         content = fp.read()
+    blob = TextBlob(content)
+    print blob.sentiment.polarity
+
+#make files to save the polarity and subjectivity
+
+
+#https://planspace.org/20150607-textblob_sentiment/
 
 import sys
 
