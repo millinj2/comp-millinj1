@@ -1,6 +1,7 @@
 from newspaper import Article
 import datetime
 import urllib.request
+from urllib.request import Request, urlopen
 import sqlite3
 import csv
 import sys
@@ -128,18 +129,26 @@ import sys
 
 if __name__ == '__main__':
 
-    # inFile1 = "amazonDataUrls.txt" # use a parameter from the terminal?
-    # data_list = openFile2(inFile1) # get a list of the links from the data.txt
-    #
-    # for i in data_list:
-    #     print(i)
-    #     url = i
-    #     print(" Send this url = ",url," to your newspaper code using a for loop like this...")
+    inFile1 = "amazonDataUrls.txt" # use a parameter from the terminal?
+    data_list = openFile2(inFile1) # get a list of the links from the data.txt
 
-    url = 'https://www.mediapost.com/publications/article/315144/amazon-seeks-startups-for-alexa-innovations.html'
-    article = Article(url)
-    article.download()
-    response = urllib.request.urlopen(url)
+    for i in data_list:
+        try:
+            x = urllib.request.urlopen(i)
+            print(i)
+            url = i
+            # print(" Send this url = ",url," to your newspaper code using a for loop like this...")
+            # url = 'https://www.mediapost.com/publications/article/315144/amazon-seeks-startups-for-alexa-innovations.html'
+            article = Article(url)
+            article.download()
+            response = urllib.request.urlopen(url)
+
+        except urllib.error.HTTPError as e:
+            if e.code in (..., 403, ...):
+                continue
+        article = Article(url)
+        article.download()
+        response = urllib.request.urlopen(url)
 
     company = "Amazon"
 
