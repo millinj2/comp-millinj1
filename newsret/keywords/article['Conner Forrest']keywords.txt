@@ -1,0 +1,7 @@
+['cam', 'release', 'amazon', 'alexa', 'detection', 'control', 'updated', 'audio', 'echo', 'notifications', 'cloud', 'announced', 'users', 'voice', 'twoway']e control.
+Amazon Cloud Cam users will now be able to turn on their cloud-based security cameras with voice control through Amazon Alexa, the company announced Monday.
+In addition to the Alexa integration, Amazon also announced that Cloud Cam customers would be able to view their live streams from a new browser portal.
+According to the release, users just need to navigate to cloudcam.amazon.com and sign in to see their streams.
+SEE: Internet of Things policy (Tech Pro Research)Updates also came to certain models of the Amazon Echo.
+https://www.techrepublic.com/article/amazon-cloud-cam-updated-with-alexa-voice-control-two-way-audio-and-more/
+Amazon

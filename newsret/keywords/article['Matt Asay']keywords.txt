@@ -1,0 +1,7 @@
+['eks', 'kubernetes', 'amazon', 'kindness', 'service', 'container', 'developer', 'cloud', 'running', 'aws', 'fargate', 'kill', 'subramanian']roject.
+Given that 63% of Kubernetes cloud workloads already run on AWS, coupled with AWS's stated goal of enabling maximum developer choice, it was perhaps a foregone conclusion that AWS would roll out Amazon Elastic Compute Service for Kubernetes (EKS), a managed Kubernetes service to rival those already offered by Microsoft and Google.
+They are in the process of creating a service that will take the pain out of cluster management and integrate it with their managed Kubernetes service.
+And with Amazon Fargate, this hits overdrive.
+But so is AWS, and AWS commands much more developer fealty than Kubernetes does (impressive as Kubernetes' community is).
+https://www.techrepublic.com/article/how-amazon-could-kill-kubernetes-with-developer-kindness/
+Amazon

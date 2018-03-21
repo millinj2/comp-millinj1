@@ -1,0 +1,6 @@
+['customer', 'content', 'question', 'user', 'amazon', 'retailers', 'company', 'good', 'understand', 'know', 'efficiency', 'age', 'measure', 'survival', 'experience', 'journey'] Square is a French company that helps retailers to analyse and optimise user experiences on mobile, web, and in apps.
+When you create a good experience, it is not that they will go to Amazon and buy your product.
+For us, a good customer journey is when we can get to understand the mindset of the user.
+4 things you didn't know about Amazon (CNET)Think you know everything there is to know about the online superstore?
+http://www.zdnet.com/article/for-retailers-in-the-age-of-amazon-user-experience-is-a-question-of-survival/
+Amazon

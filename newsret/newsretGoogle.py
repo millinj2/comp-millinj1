@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from newspaper import Article
 import datetime
 import urllib.request
@@ -8,30 +9,63 @@ import sys
 # from textblob import TextBlob
 
 def getArticleSummary(source):
+    print(source)
     article.parse()
     article.html
     article.nlp()
 
     value1 = article.summary
+    print(value1 + "\n")
+
+    art_summary = value1
+    auth = str(article.authors)
+    filename = "articleSummaryFiles/article" + auth + "summary.csv"
+    #create the file
+    f = open(filename,"w")
+    #write the data
+    f.write(str(article))
+    # dt = getArticleDate(source)
+    # DBfileName = "../compDB.db"
+    # ref = str(url)
+    #
+    # print("about to write to database")
+    # baggagehand(dt, company, ref, art_summary, DBfileName
+
     return value1
+
 
 def getArticleDate(source):
     article.parse()
     article.html
     article.nlp()
+
     value2 = article.publish_date
+    print(value2)
+    print("\n")
+
     return value2
+
 
 def getKeyWords(source):
     article.parse()
     article.html
     article.nlp()
     words = article.keywords
-    filename = "articlekeywords.txt"
+    auth = str(article.authors)
+    filename = "keywords/article" + auth + "keywords.txt"
     #create the file
     f = open(filename,"w")
     #write the data
     f.write(str(words))
+
+    dt = str(getArticleDate(source))
+    art_summary = getArticleSummary(source)
+
+    saveData(dt, url, art_summary, company, filename)
+    # baggagehand(dt, company, url, art_summary, DBfileName)
+
+    print(words)
+    return words
 
 def openFile(file):
 # read a list, return a dic
@@ -42,35 +76,61 @@ def openFile(file):
         print ("  \aNo such file!!!! \"",file,"\" so exiting")
         sys.exit(1)
 #end of openFile()
+    saveData(dt, url, art_summary, company, filename)
 
 def saveData(dt, url, art_summary, company, filename):
 #create the file
     f = open(filename,"w")
+    nl = "\n"
 #write the data
-    f.write(dt+"\n")
-    f.write(art_summary+"\n")
-    f.write(url++"\n")
-    f.write(company+"\n")
+    if dt is not None:
+        f.write(dt)
+        f.write("\n")
+        f.write(art_summary + nl)
+        # f.write("\n")
+        f.write(url + nl)
+        # f.write("\n")
+        f.write(company + nl)
+        # f.write("\n")
+    else:
+        f.write(art_summary + nl)
+        # f.write("\n")
+        f.write(url + nl)
+        # f.write("\n")
+        f.write(company + nl)
+        # f.write("\n")
 #close the file
     f.close()
+    print("file saved")
 
-def begin(inFile):
-    source = open(inFile,"r").read() # load the whole file.
-    source = openFile(inFile)
-
-    art_summary = getArticleSummary(source)
-    auth = str(article.authors)
-    filename = "articleSummaryFiles/article" + auth + "summary.csv"
-    #create the file
-    f = open(filename,"w")
-    #write the data
-    f.write(str(article))
-    dt = getArticleDate(source)
+    dt = str(getArticleDate(article))
     DBfileName = "../compDB.db"
+    ref = str(url)
 
-    baggagehand(dt, company, url, art_summary, DBfileName)
+    print("about to write to database")
 
-def baggagehand(dt, company, url, art_summary, DBfileName):
+    baggagehand(dt, company, ref, art_summary, DBfileName)
+
+
+# def begin(inFile):
+#     source = open(inFile,"r").read() # load the whole file.
+#     source = openFile(inFile)
+#
+#     art_summary = getArticleSummary(source)
+#     auth = str(article.authors)
+#     filename = "articleSummaryFiles/article" + auth + "summary.csv"
+#     #create the file
+#     f = open(filename,"w")
+#     #write the data
+#     f.write(str(article))
+#     dt = getArticleDate(source)
+#     DBfileName = "../compDB.db"
+#
+#     print("about to write to database")
+#
+#     baggagehand(dt, company, url, art_summary, DBfileName)
+
+def baggagehand(dt, company, ref, art_summary, DBfileName):
 # method to get a file, open content, and populate database
 
     print (" Baggagehand() We are saving to this file: ", DBfileName)
@@ -80,7 +140,7 @@ def baggagehand(dt, company, url, art_summary, DBfileName):
     conn = sqlite3.connect(sqlite_file) # load the database file, defined above
     c = conn.cursor()
 
-    c.execute("INSERT INTO news VALUES (?, ?, ?, ?)", (dt, company, url, art_summary))
+    c.execute("INSERT INTO news VALUES (?, ?, ?, ?)", (dt, company, ref, art_summary))
     conn.commit()
     #print the tables from database
     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
@@ -129,28 +189,55 @@ import sys
 
 if __name__ == '__main__':
 
-    inFile1 = "amazonDataUrls.txt" # use a parameter from the terminal?
+    inFile1 = "googleDataUrls.txt" # use a parameter from the terminal?
     data_list = openFile2(inFile1) # get a list of the links from the data.txt
 
     for i in data_list:
         try:
             x = urllib.request.urlopen(i)
-            print(i)
             url = i
             # print(" Send this url = ",url," to your newspaper code using a for loop like this...")
             # url = 'https://www.mediapost.com/publications/article/315144/amazon-seeks-startups-for-alexa-innovations.html'
             article = Article(url)
             article.download()
             response = urllib.request.urlopen(url)
+            company = "Google"
+            print(url)
+
+            getArticleSummary(article)
+            print("does this work")
+            getArticleDate(url)
+            print("how about this")
+            getKeyWords(article)
+            # print("or this?")
+            # openFile(file)
+            # saveData(dt, url, art_summary, company, filename)
+            # begin(inFile)
 
         except urllib.error.HTTPError as e:
             if e.code in (..., 403, ...):
                 continue
-        article = Article(url)
-        article.download()
-        response = urllib.request.urlopen(url)
 
-    company = "Amazon"
+        # article = Article(url)
+        # article.download()
+        # response = urllib.request.urlopen(url)
+        #
+        # getArticleSummary(url)
+        # getArticleDate(url)
+        # getKeyWords(url)
+        # openFile(file)
+        # saveData(dt, url, art_summary, company, filename)
+        # begin(inFile)
+
+    # article = Article(url)
+    # article.download()
+    # response = urllib.request.urlopen(url)
+    # company = "Amazon"
+    #
+    # getArticleSummary(url)
+    # getArticleDate(url)
+    # getKeyWords(url)
+
 
     # data = response.read()
     # text = repr(data).encode('utf-8')

@@ -1,1 +1,1 @@
-[]
+['republican', 'lawmakers', 'conservative', 'amazon', 'state', 'bid', 'company', 'georgias', 'politics', 'atlanta', 'threaten', 'delta', 'states', 'electionyear', 'georgia']
