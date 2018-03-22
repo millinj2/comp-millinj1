@@ -1,6 +1,1 @@
-['students', 'placements', 'included', 'final', 'amazon', 'bcg', 'iima', 'placement', 'saw', 'wraps', 'offers', 'management', 'recruiters', 'accenture', 'cohort', 'companies']ded AT Kearney, Bain & Co, McKinsey & Co, Monitor Deloitte and Oliver Wyman, apart from Accenture.
-Recruiters in the private equity & venture capital cohort included Kedaara Capital and Matrix Partners.
-The general management cohort also saw participation from Aditya Birla Group, CK Birla and RPG Group.
-Te consumer services cohort saw participation from Airtel, IndiGo and Star TV.
-http://www.business-standard.com/article/current-affairs/accenture-bcg-amazon-top-recruiters-as-at-iim-a-final-placements-118031200795_1.html
-Amazon
+['students', 'bcg', 'accenture', 'companies', 'recruiters', 'amazon', 'included', 'placements', 'cohort', 'offers', 'iima', 'management', 'placement', 'saw', 'wraps', 'final']

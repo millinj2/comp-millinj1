@@ -15,15 +15,16 @@ def getArticleSummary(source):
     article.nlp()
 
     value1 = article.summary
+    print("this is the summary")
     print(value1 + "\n")
 
-    art_summary = value1
-    auth = str(article.authors)
-    filename = "articleSummaryFiles/article" + auth + "summary.csv"
-    #create the file
-    f = open(filename,"w")
-    #write the data
-    f.write(str(article))
+    # art_summary = value1
+    # auth = str(article.authors)
+    # filename = "articleSummaryFiles/article" + auth + "summary.csv"
+    # #create the file
+    # f = open(filename,"w")
+    # #write the data
+    # f.write(str(article))
     # dt = getArticleDate(source)
     # DBfileName = "../compDB.db"
     # ref = str(url)
@@ -61,8 +62,27 @@ def getKeyWords(source):
     dt = str(getArticleDate(source))
     art_summary = getArticleSummary(source)
 
+    # art_summary = value1
+    auth = str(article.authors)
+    print(auth)
+    ref = str(url)
+    print(ref)
+    counter = 0
+
+    if auth == False:
+        # for filename in filname:
+        filename = "articleSummaryFiles/article" + company + str(counter) + "summary.csv"
+        counter += 1
+    else:
+        filename = "articleSummaryFiles/article" + company + auth + str(counter) + "summary.csv"
+        counter += 1
+    #create the file
+    f = open(filename,"w")
+    #write the data
+    f.write(str(art_summary))
+
     saveData(dt, url, art_summary, company, filename)
-    # baggagehand(dt, company, url, art_summary, DBfileName)
+    # baggagehand(dt, company, ref, art_summary, DBfileName)
 
     print(words)
     return words
@@ -112,23 +132,24 @@ def saveData(dt, url, art_summary, company, filename):
     baggagehand(dt, company, ref, art_summary, DBfileName)
 
 
-# def begin(inFile):
-#     source = open(inFile,"r").read() # load the whole file.
-#     source = openFile(inFile)
-#
-#     art_summary = getArticleSummary(source)
-#     auth = str(article.authors)
-#     filename = "articleSummaryFiles/article" + auth + "summary.csv"
-#     #create the file
-#     f = open(filename,"w")
-#     #write the data
-#     f.write(str(article))
-#     dt = getArticleDate(source)
-#     DBfileName = "../compDB.db"
-#
-#     print("about to write to database")
-#
-#     baggagehand(dt, company, url, art_summary, DBfileName)
+def begin(inFile):
+    source = open(inFile,"r").read() # load the whole file.
+    source = openFile(inFile)
+
+    art_summary = getArticleSummary(source)
+    auth = str(article.authors)
+    filename = "articleSummaryFiles/article" + auth + "summary.csv"
+    #create the file
+    f = open(filename,"w")
+    #write the data
+    f.write(str(article))
+    dt = getArticleDate(source)
+    ref = str(url)
+    DBfileName = "../compDB.db"
+
+    print("about to write to database")
+
+    baggagehand(dt, company, ref, art_summary, DBfileName)
 
 def baggagehand(dt, company, ref, art_summary, DBfileName):
 # method to get a file, open content, and populate database
@@ -140,14 +161,14 @@ def baggagehand(dt, company, ref, art_summary, DBfileName):
     conn = sqlite3.connect(sqlite_file) # load the database file, defined above
     c = conn.cursor()
 
-    c.execute("INSERT INTO news VALUES (?, ?, ?, ?)", (dt, company, ref, art_summary))
+    c.execute("INSERT OR IGNORE INTO news VALUES (?, ?, ?, ?)", (dt, company, ref, art_summary))
     conn.commit()
     #print the tables from database
     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
-    print(result)
+    # print(result)
     #print everything in Stocks
-    result2 = c.execute("SELECT * FROM news").fetchall()
-    print (result2)
+    # result2 = c.execute("SELECT * FROM news").fetchall()
+    # print (result2)
     row = c.fetchall()
 
     conn.close()
