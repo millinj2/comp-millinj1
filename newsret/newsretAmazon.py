@@ -53,7 +53,7 @@ def getKeyWords(source):
     article.nlp()
     words = article.keywords
     auth = str(article.authors)
-    filename = "keywords/article" + auth + "keywords.txt"
+    filename = "keywords/Amazon/article" + company + auth + "keywords.txt"
     #create the file
     f = open(filename,"w")
     #write the data
@@ -71,17 +71,18 @@ def getKeyWords(source):
 
     if auth == False:
         # for filename in filname:
-        filename = "articleSummaryFiles/article" + company + str(counter) + "summary.csv"
+        filename = "articleSummaryFiles/Amazon/article" + company + str(counter) + "summary.csv"
         counter += 1
     else:
-        filename = "articleSummaryFiles/article" + company + auth + str(counter) + "summary.csv"
+        filename = "articleSummaryFiles/Amazon/article" + company + auth + str(counter) + "summary.csv"
         counter += 1
     #create the file
     f = open(filename,"w")
     #write the data
     f.write(str(art_summary))
+    art_sum_name = filename
 
-    saveData(dt, url, art_summary, company, filename)
+    saveData(dt, url, art_summary, company, art_sum_name, filename)
     # baggagehand(dt, company, ref, art_summary, DBfileName)
 
     print(words)
@@ -96,9 +97,9 @@ def openFile(file):
         print ("  \aNo such file!!!! \"",file,"\" so exiting")
         sys.exit(1)
 #end of openFile()
-    saveData(dt, url, art_summary, company, filename)
+    saveData(dt, url, art_summary, company, art_sum_name, filename)
 
-def saveData(dt, url, art_summary, company, filename):
+def saveData(dt, url, art_summary, company, art_sum_name, filename):
 #create the file
     f = open(filename,"w")
     nl = "\n"
@@ -112,6 +113,7 @@ def saveData(dt, url, art_summary, company, filename):
         # f.write("\n")
         f.write(company + nl)
         # f.write("\n")
+        f.write(art_sum_name)
     else:
         f.write(art_summary + nl)
         # f.write("\n")
@@ -129,7 +131,7 @@ def saveData(dt, url, art_summary, company, filename):
 
     print("about to write to database")
 
-    baggagehand(dt, company, ref, art_summary, DBfileName)
+    baggagehand(dt, company, ref, art_summary, art_sum_name, DBfileName)
 
 
 def begin(inFile):
@@ -138,7 +140,7 @@ def begin(inFile):
 
     art_summary = getArticleSummary(source)
     auth = str(article.authors)
-    filename = "articleSummaryFiles/article" + auth + "summary.csv"
+    filename = "articleSummaryFiles/Amazon/article" + auth + "summary.csv"
     #create the file
     f = open(filename,"w")
     #write the data
@@ -149,9 +151,9 @@ def begin(inFile):
 
     print("about to write to database")
 
-    baggagehand(dt, company, ref, art_summary, DBfileName)
+    baggagehand(dt, company, ref, art_summary, art_sum_name, DBfileName)
 
-def baggagehand(dt, company, ref, art_summary, DBfileName):
+def baggagehand(dt, company, ref, art_summary, art_sum_name, DBfileName):
 # method to get a file, open content, and populate database
 
     print (" Baggagehand() We are saving to this file: ", DBfileName)
@@ -161,7 +163,7 @@ def baggagehand(dt, company, ref, art_summary, DBfileName):
     conn = sqlite3.connect(sqlite_file) # load the database file, defined above
     c = conn.cursor()
 
-    c.execute("INSERT OR IGNORE INTO news VALUES (?, ?, ?, ?)", (dt, company, ref, art_summary))
+    c.execute("INSERT OR IGNORE INTO news VALUES (?, ?, ?, ?, ?)", (dt, company, ref, art_summary, art_sum_name))
     conn.commit()
     #print the tables from database
     result = c.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()

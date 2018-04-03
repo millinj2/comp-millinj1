@@ -1,0 +1,8 @@
+Here are the big takeaways:The SgxPectre vulnerability exposes the contents of secure enclaves used in 6th generation and newer Intel processors.
+While the original Spectre vulnerability relied on branch prediction and speculation to read kernel-level memory, it was not able to read the contents of SGX-protected secure enclaves.
+Because the problems exist in the runtime libraries, any program utilizing SGX is insecure, independent of how SGX utilization is implemented in the program.
+According to the researchers: "The branch prediction units used in the enclave mode for predicting branch targets are not thoroughly cleansed upon enclave entrance.
+Therefore, code outside the targeted enclave (either running in the unprotected memory region or in another enclave) can manipulate the targets the branch prediction inside the targeted enclave."ave."
+https://www.techrepublic.com/article/spectre-like-attack-exposes-entire-contents-of-intels-sgx-secure-enclave/
+Intel
+articleSummaryFiles/Intel/articleIntel['James Sanders']0summary.csv

@@ -1,1 +1,0 @@
-['students', 'bcg', 'accenture', 'companies', 'recruiters', 'amazon', 'included', 'placements', 'cohort', 'offers', 'iima', 'management', 'placement', 'saw', 'wraps', 'final']

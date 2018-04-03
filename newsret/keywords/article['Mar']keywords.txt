@@ -1,1 +1,0 @@
-['place', 'handsfree', 'lets', 'today', 'calls', 'app', 'users', 'amazon', 'alexaenabled', 'alexa', 'mode', 'tablets']

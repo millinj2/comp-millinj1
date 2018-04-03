@@ -1,0 +1,1 @@
+['shares', 'business', 'target', 'rating', 'head', 'machines', 'maintained', 'corporation', 'higher', 'nyseibm', 'stock', 'points', 'international', 'shoulders', 'risks', 'ibms']

@@ -1,0 +1,1 @@
+['intels', 'system', 'changes', 'recent', 'spectre', 'intel', 'performance', 'pcs', 'older', 'little', 'microcode', 'windows', 'meltdown', 'fear', 'patches', 'updates']

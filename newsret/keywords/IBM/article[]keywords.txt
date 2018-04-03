@@ -1,0 +1,1 @@
+['million', 'target', 'rating', 'international', 'formed', 'corporation', 'head', 'machines', 'ibm', 'shares', 'nyseibm', 'stock', 'business', 'traders', 'shoulders', 'maintained']

@@ -1,0 +1,1 @@
+['wright', 'tower', 'series', 'mr', 'amazon', 'futterman', 'netflix', 'fight', 'puts', 'hulu', 'million', 'disney', 'apple', 'looming']

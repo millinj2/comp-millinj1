@@ -1,0 +1,1 @@
+['patch', 'sp3', 'intel', 'updates', 'firmware', 'feints', 'released', 'releases', 'surface', 'pro', 'microcode', 'update', 'variant', 'fixes', 'meltdownspectre', 'microsoft']

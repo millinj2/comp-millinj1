@@ -1,0 +1,1 @@
+['france', 'china', 'support', 'buildout', 'regions', 'infrastructure', 'middle', 'east', 'cloud', 'takes', 'datacenters', 'azure', 'review', '365', 'microsoft', 'virtualization', 'plans', 'services', 'office']

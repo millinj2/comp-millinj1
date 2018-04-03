@@ -1,0 +1,1 @@
+['announced', 'release', 'echo', 'updated', 'notifications', 'audio', 'detection', 'users', 'twoway', 'cam', 'voice', 'control', 'amazon', 'alexa', 'cloud']

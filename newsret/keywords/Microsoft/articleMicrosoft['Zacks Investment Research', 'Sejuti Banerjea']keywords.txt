@@ -1,0 +1,1 @@
+['monthly', 'month', 'delayed', 'thwarts', 'zacks', 'stocks', 'roundup', 'return', 'signs', 'data', 'system', 'attack', 'rank', 'deal', 'microsoft', 'energy', 'returns', 'cryptocoin']

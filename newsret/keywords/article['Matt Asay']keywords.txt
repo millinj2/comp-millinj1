@@ -1,1 +1,0 @@
-['developer', 'eks', 'subramanian', 'service', 'running', 'container', 'amazon', 'kindness', 'aws', 'fargate', 'kubernetes', 'kill', 'cloud']

@@ -1,1 +1,0 @@
-['headquarters', 'mayor', 'washington', 'amazon', 'tours', 'meets', 'city', 'representatives', 'cities', 'hq2', 'finalists', 'amazons', 'dinners']

@@ -1,0 +1,1 @@
+['intels', 'memory', 'intel', 'contents', 'spectrelike', 'attack', 'spectre', 'code', 'entire', 'exposes', 'enclave', 'secure', 'prediction', 'used', 'sgx', 'branch']

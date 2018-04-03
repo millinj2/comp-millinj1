@@ -1,0 +1,1 @@
+['plan', 'witnesses', 'plans', 'intel', 'work', 'testimony', 'committees', 'staff', 'build', 'investigation', 'shelved', 'house', 'physical', 'republicans', 'wall', 'committee']

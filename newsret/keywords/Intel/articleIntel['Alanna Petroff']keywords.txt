@@ -1,0 +1,1 @@
+['happy', 'stocks', 'talk', 'unit', 'wall', 'intel', 'price', 'broadcom', 'investors', 'qualcomm', 'reported', 'takeover', 'street', 'shares', 'optimism', 'prada']

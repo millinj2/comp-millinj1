@@ -1,0 +1,8 @@
+NewsHundreds of Enterprise Services Reportedly Hit by AWS OutageHundreds of critical enterprise services were reportedly affected by an Amazon Web Services Inc. (AWS) outage on Friday.
+While that "partner" was unnamed, Internet monitoring company ThousandEyes reported the outage affected hundreds of critical enterprise services including Atlassian, Slack and Twilio.
+The AWS Service Health Dashboard provided this timeline of the outage:7:29 AM PST We are investigating increased packet loss possibly impacting some AWS Direct Connect customers in the US-EAST-1 Region.
+8:03 AM PST We continue to work towards resolving the increased packet loss impacting AWS Direct Connect connectivity to the US-EAST-1 Region.
+The company says the AWS Direct Connect service "can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than Internet-based connections."-based connections."
+https://virtualizationreview.com/articles/2018/03/05/aws-outage.aspx
+Amazon
+articleSummaryFiles/articleAmazon['About The Author']0summary.csv

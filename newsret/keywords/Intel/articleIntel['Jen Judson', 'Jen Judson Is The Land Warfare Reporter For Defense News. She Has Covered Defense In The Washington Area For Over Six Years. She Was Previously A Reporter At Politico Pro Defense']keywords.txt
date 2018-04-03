@@ -1,0 +1,1 @@
+['analysis', 'system', 'solution', 'turns', 'plans', 'intel', 'point', 'fix', 'maneuver', 'states', 'opponent', 'army', 'units', 'legal', 'process', 'tactical']

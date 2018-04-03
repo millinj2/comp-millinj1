@@ -1,1 +1,0 @@
-['measure', 'experience', 'question', 'company', 'journey', 'good', 'user', 'amazon', 'customer', 'understand', 'age', 'efficiency', 'content', 'retailers', 'know', 'survival']

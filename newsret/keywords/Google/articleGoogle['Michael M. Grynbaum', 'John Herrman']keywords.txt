@@ -1,0 +1,1 @@
+['facebook', 'president', 'google', 'right', 'social', 'tech', 'foils', 'media', 'companies', 'political', 'conservative', 'reading']

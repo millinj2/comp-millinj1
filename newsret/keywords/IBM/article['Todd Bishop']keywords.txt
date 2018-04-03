@@ -1,0 +1,1 @@
+['settlement', 'noncompete', 'mcintyre', 'diversity', 'officer', 'unusual', 'ibms', 'court', 'reaches', 'ending', 'ibm', 'microsoft', 'suit', 'chief']

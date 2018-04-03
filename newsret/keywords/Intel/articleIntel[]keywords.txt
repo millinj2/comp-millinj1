@@ -1,0 +1,1 @@
+['sold', 'rating', 'worth', 'intel', 'price', 'declined', 'million', 'stock', 'raised', 'corp', 'corporation', 'nasdaqintc', 'fifth', 'shares', 'intc', 'reported', 'holding']

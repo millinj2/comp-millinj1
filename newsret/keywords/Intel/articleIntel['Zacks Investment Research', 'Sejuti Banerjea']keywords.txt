@@ -1,0 +1,1 @@
+['instinet', 'stocks', 'citi', 'system', 'intel', 'analysts', 'zacks', 'corp', 'returns', 'monthly', 'delayed', 'month', 'positive', 'intc', 'return', 'data', 'rank']

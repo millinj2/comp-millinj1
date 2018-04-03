@@ -1,0 +1,1 @@
+['challenge', 'customers', '200k', 'including', 'slack', 'launch', 'organizations', 'claims', 'company', 'companies', 'users', 'used', 'teams', 'microsoft', 'ratchets', 'microsofts', 'voice']

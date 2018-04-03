@@ -1,1 +1,0 @@
-['help', 'publishers', 'york', 'google', 'articles', 'revenue', 'subscribers', 'media', 'digital', 'support', 'paying', 'times', 'prioritize']

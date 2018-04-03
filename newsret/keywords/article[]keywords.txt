@@ -1,1 +1,0 @@
-['customers', 'returns', 'research', 'today', 'retail', 'highlights', 'sector', 'walmart', 'industry', 'amazon', 'outlook', 'zacks', 'investment', 'stocks', 'rite', 'retailers', 'target', 'aid']

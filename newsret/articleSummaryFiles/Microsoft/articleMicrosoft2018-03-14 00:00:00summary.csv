@@ -1,0 +1,8 @@
+Microsoft’s Tuesday patch-fest may have reacted quite negatively with Windows Server 2008 R2 running VMware, leaving servers offline and administrators scrambling to recover IP addresses.
+Twitter user @Sikorsky78 noted the problem just after the patches hit:It seems that the latest MS patches ate my vmxnet3 adapters on Windows 2008R2 :(.
+Microsoft has remained tightlipped on the issue, leaving it to users to work out what part of the update borked their carefully crafted networks.
+The issue appears isolated to Windows Server 2008 R2 installations, with those running VMware VMs particularly hard hit.
+In the meantime, probably best to think very carefully before allowing these patches anywhere near a production environment, m’kay?nvironment, m’kay?
+https://www.theregister.co.uk/2018/03/14/microsoft_secures_the_servers_of_the_world/
+Microsoft
+articleSummaryFiles/Microsoft/articleMicrosoft2018-03-14 00:00:00summary.csv

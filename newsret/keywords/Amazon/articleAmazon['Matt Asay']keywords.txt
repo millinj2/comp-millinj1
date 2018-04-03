@@ -1,0 +1,1 @@
+['eks', 'kindness', 'subramanian', 'fargate', 'container', 'aws', 'developer', 'service', 'kill', 'amazon', 'running', 'kubernetes', 'cloud']

@@ -1,0 +1,1 @@
+['representatives', 'finalists', 'amazons', 'dinners', 'washington', 'hq2', 'city', 'cities', 'tours', 'mayor', 'amazon', 'meets', 'headquarters']

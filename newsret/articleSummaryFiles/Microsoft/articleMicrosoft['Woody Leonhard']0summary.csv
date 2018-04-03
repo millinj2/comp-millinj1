@@ -1,0 +1,8 @@
+Windows Update will then try to update your device… Windows 10 version 1607 and version 1703 are not yet at "end of service."
+To understand why Windows 10 customers are so upset, it helps to look at the Windows Update advanced options in Win10 Creators Update, version 1703 (screenshot below).
+3 accidental Windows updates in 4 monthsIn mid-November 2017, without warning, Windows Update started upgrading 1703 machines set to wait for CBB.
+Somehow, in the course of charging ahead to CBB, er, SAC, Windows Update forgot to pay heed to the feature update deferral setting.
+One little problem: This month, Update Assistant forgot to look at the feature update deferral setting and starting rolling 1709 out to machines set to block 1709 — even machines that have Windows Update disabled.bled.
+https://www.computerworld.com/article/3261969/microsoft-windows/microsoft-again-forced-upgrades-on-win10-machines-specifically-set-to-block-updates.html
+Microsoft
+articleSummaryFiles/Microsoft/articleMicrosoft['Woody Leonhard']0summary.csv

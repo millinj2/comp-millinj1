@@ -1,1 +1,0 @@
-['customers', 'retail', 'checking', 'chase', 'wants', 'amazon', 'jpmorgan', 'prime', 'big', 'bank', 'company']

@@ -1,0 +1,8 @@
+Testing the side effects of Spectre-cideThe Meltdown and Spectre vulnerabilities still loom over the world's computer users as companies scramble to mitigate them.
+Microsoft does have some ideas for the kinds of performance hits we should expect on PCs, and its work suggests any performance changes will be CPU-dependent and operating-system-dependent.
+It's important to remember that the microcode updates Intel is issuing are mitigations, not curatives.
+JavaScriptFirst off, we have several synthetic JavaScript benchmarks that give us a good idea of single-threaded performance changes.
+On the whole, a geometric mean of the performance changes we saw suggests a 6.1% loss in these benchmarks.arks.
+https://techreport.com/review/33299/recent-pcs-have-little-to-fear-from-intel-spectre-microcode-updates
+Intel
+articleSummaryFiles/Intel/articleIntel['Jeff Kampman']0summary.csv
