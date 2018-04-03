@@ -8,7 +8,7 @@ from textblob import TextBlob
 reload(sys)
 # sys.setdefaultencoding('utf8')
 
-path = "/Users/jennamillin/repos/cs600/comp-millinj2/newsret/articleSummaryFiles/Microsoft"
+path = "/Users/jennamillin/repos/cs600/comp-millinj2/newsret/articleSummaryFiles/Apple"
 
 for filename in os.listdir(path):
     filename = os.path.join(path, filename)

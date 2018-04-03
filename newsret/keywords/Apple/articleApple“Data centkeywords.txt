@@ -1,0 +1,1 @@
+['billion', 'million', 'build', 'data', 'tax', 'property', 'centers', 'learns', 'love', 'companies', 'oregon', 'center', 'town', 'apple', 'facebook']

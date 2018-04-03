@@ -1,1 +1,1 @@
-['cover', 'x', 'courtney', 'apart', 'songs', 'equality', 'original', 'recording', 'covers', 'barnett', 'supporting', 'marriage', 'moving', 'hit', 'apple', 'ad', 'inxs', 'tear']
+['marriage', 'courtney', 'tear', 'songs', 'recording', 'cover', 'x', 'supporting', 'barnett', 'ad', 'inxs', 'apple', 'apart', 'hit', 'covers', 'moving', 'original', 'equality']

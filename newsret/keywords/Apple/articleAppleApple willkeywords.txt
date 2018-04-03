@@ -1,0 +1,1 @@
+['closed', 'updated', 'period', '9month', 'retail', 'refurbishment', 'bluewater', 'apples', 'white', 'apple', 'video', 'store', '24', 'reopening']

@@ -53,7 +53,12 @@ def getKeyWords(source):
     article.nlp()
     words = article.keywords
     auth = str(article.authors)
-    filename = "keywords/Apple/article" + company + auth + "keywords.txt"
+    sum_line = str(getArticleSummary(source))[:10]
+
+    if auth == "[]":
+        filename = "keywords/Apple/article" + company + sum_line + "keywords.txt"
+    else:
+        filename = "keywords/Apple/article" + company + auth + "keywords.txt"
     #create the file
     f = open(filename,"w")
     #write the data
@@ -67,15 +72,15 @@ def getKeyWords(source):
     print(auth)
     ref = str(url)
     print(ref)
-    counter = 0
+    sum_line = str(getArticleSummary(source))[:10]
 
-    if auth == False:
+    if auth == "[]":
         # for filename in filname:
-        filename = "articleSummaryFiles/Apple/article" + company + str(counter) + "summary.csv"
-        counter += 1
+        filename = "articleSummaryFiles/Apple/article" + company + sum_line + "summary.csv"
+
     else:
-        filename = "articleSummaryFiles/Apple/article" + company + auth + str(counter) + "summary.csv"
-        counter += 1
+        filename = "articleSummaryFiles/Apple/article" + company + auth + "summary.csv"
+
     #create the file
     f = open(filename,"w")
     #write the data

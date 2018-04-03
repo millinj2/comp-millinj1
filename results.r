@@ -28,7 +28,7 @@ Am_stock <- Am_stock + scale_color_manual(labels = c("Stock Value", "Average"), 
 Am_stock
 
 #plot the sentiment scores for Amazon News Articles retrieved
-Am_sent <- ggplot(data = amazonSent, mapping = aes(x = dt, y = sentiment)) + geom_path(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
+Am_sent <- ggplot(data = amazonSent, mapping = aes(x = dt, y = sentiment)) + geom_line(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
 Am_sent <- Am_sent + labs(#title = "Amazon News Sentiment",
                     y = "Sentiment Score",
                     x = "Date",
@@ -55,7 +55,7 @@ Ap_stock <- Ap_stock + scale_color_manual(labels = c("Stock Value", "Average"), 
 Ap_stock
 
 #plot the sentiment scores for Apple News Articles retrieved
-Ap_sent <- ggplot(data = appleSent, mapping = aes(x = dt, y = sentiment)) + geom_point(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
+Ap_sent <- ggplot(data = appleSent, mapping = aes(x = dt, y = sentiment)) + geom_line(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
 Ap_sent <- Ap_sent + labs(#title = "Apple News Sentiment",
   y = "Sentiment Score",
   x = "Date",

@@ -1,1 +1,1 @@
-['controls', 'kids', 'devices', 'screentime', 'concerns', 'parental', 'features', 'screen', 'debuts', 'apple', 'company', 'help', 'parents', 'page']
+['debuts', 'company', 'devices', 'page', 'features', 'screen', 'screentime', 'parental', 'apple', 'help', 'controls', 'parents', 'kids', 'concerns']
