@@ -1,12 +1,15 @@
 library(tidyverse)
 library(dplyr)
 library(readr)
+library(qdap)
 
-modelTable <- read_delim("repos/cs600/comp-millinj2/modelTable.csv", "\t", escape_double = FALSE, trim_ws = TRUE)
-modelTable$dt <- as.Date(modelTable$dt, '%m/%d/%Y')
+
+modelTable <- read_delim("modelTable.csv", "\t", escape_double = FALSE, trim_ws = TRUE)
+#modelTable <- read_csv("/Users/jennamillin/repos/cs600/comp-millinj2/modelTable.csv", "\t", escape_double = FALSE, trim_ws = TRUE)
+modelTable$date <- as.Date(modelTable$date, '%m/%d/%Y')
 View(modelTable)
 
-stockTable <- read.csv("repos/cs600/comp-millinj2/stocksTable.csv")
+stockTable <- read_csv("/Users/jennamillin/repos/cs600/comp-millinj2/stocksTable.csv")
 stockTable$dt <- as.Date(stockTable$dt, '%m/%d/%Y')
 
 ##########################################################################################
@@ -28,7 +31,7 @@ Am_stock <- Am_stock + scale_color_manual(labels = c("Stock Value", "Average"), 
 Am_stock
 
 #plot the sentiment scores for Amazon News Articles retrieved
-Am_sent <- ggplot(data = amazonSent, mapping = aes(x = dt, y = sentiment)) + geom_line(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
+Am_sent <- ggplot(data = amazonSent, mapping = aes(x = dt, y = sentiment)) + geom_point(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
 Am_sent <- Am_sent + labs(#title = "Amazon News Sentiment",
                     y = "Sentiment Score",
                     x = "Date",
@@ -150,6 +153,7 @@ In_sent
 #filter out microsoft info
 microSent = filter(modelTable, company == "Microsoft")
 microSent$sentiment = as.numeric(microSent$sentiment)
+microSent$date = as.Date(microSent$date)
 micro = filter(stockTable, stock == "Microsoft")
 
 #plot the stock value for Microsoft
@@ -163,7 +167,7 @@ Mi_stock <- Mi_stock + scale_color_manual(labels = c("Stock Value", "Average"), 
 Mi_stock
 
 #plot the sentiment scores for Microsoft News Articles retrieved
-Mi_sent <- ggplot(data = microSent, mapping = aes(x = dt, y = sentiment)) + geom_line(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
+Mi_sent <- ggplot(data = microSent, mapping = aes(x = date, y = sentiment)) + geom_line(aes(colour = "Sentiment")) #+ geom_smooth(method = "lm", se = FALSE, color = "black")
 Mi_sent <- Mi_sent + labs(#title = "Microsoft News Sentiment",
   y = "Sentiment Score",
   x = "Date",
@@ -174,11 +178,10 @@ Mi_sent
 
 ##########################################################################################
 
+a <- c(modelTable$keywords)
+a <- tolower(a)
+a <- removePunctuation(a)
+a <- removeNumbers(a)
+freq_terms(a)
 
-
-
-
-
-
-
-
+View(a)
